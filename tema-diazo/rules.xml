@@ -5,8 +5,23 @@
     xmlns:css="http://namespaces.plone.org/diazo/css"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
+    <!-- Define a cual template va a utilizar -->
     <theme href="index.html" css:if-content="#visual-portal-wrapper" />
+
+    <!-- Importando el CSS de Plone -->
+    <replace css:content="head" css:theme="head" />
+
+    <!-- Remplaza el elemento title del tema por el elemento title del contenido -->
+    <replace css:theme="title" css:content="title"/>
+
+    <!-- Remplaza la navegación de Plone -->
     <replace css:content="#portal-globalnav" css:theme="#menu" />
+
+    <!-- Remplaza el Contenido -->
     <replace css:content="#portal-columns" css:theme="#contenido" />
 
+    <!-- Agregar el cuadro de búsqueda de Plone al final de la página. -->
+    <after css:content="#portal-searchbox" css:theme="#contenido" />
+
 </rules>
+
